@@ -1,0 +1,5 @@
+﻿  源.cpp
+c:\users\雅典娜的天罚\desktop\offer\mianshi_quicksort\mianshi_quicksort\源.cpp(43): warning C4101: “e”: 未引用的局部变量
+c:\users\雅典娜的天罚\desktop\offer\mianshi_quicksort\mianshi_quicksort\源.cpp(55): warning C4101: “e”: 未引用的局部变量
+c:\users\雅典娜的天罚\desktop\offer\mianshi_quicksort\mianshi_quicksort\源.cpp(66): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+  mianshi_QuickSort.vcxproj -> C:\Users\雅典娜的天罚\Desktop\offer\mianshi_QuickSort\Debug\mianshi_QuickSort.exe
