@@ -6,13 +6,13 @@ int maxbit(int data[], int n)
 {
 	int d = 1;
 	int max = data[0];
-	for (int i = 1; i < n; ++i)// ÕÒ³ö×î´óÖµ
+	for (int i = 1; i < n; ++i)// æ‰¾å‡ºæœ€å¤§å€¼
 	{
 		if (data[i] > max)
 			max = data[i];
 	}
 	int radix = 10;
-	while (max > radix)
+	while (max >= radix)
 	{
 		++d;
 		radix *= 10;
@@ -22,30 +22,30 @@ int maxbit(int data[], int n)
 
 void radixSort(int data[], int n)
 {
-	int d = maxbit(data, n);// ÇódataÖĞ×î´óÊı¾ßÓĞµÄÎ»Êı£¬¾ö¶¨Ñ­»·¼¸´Î
-	int* tmp = new int[n];//¸¨Öú¿Õ¼ä£¬ÅÅÍêµÄÊı×é×ÜÒªÓĞ¸öµØ·½´æ×Å
-	int* count = new int[10];// 10 ¸öÍ°
+	int d = maxbit(data, n);// æ±‚dataä¸­æœ€å¤§æ•°å…·æœ‰çš„ä½æ•°ï¼Œå†³å®šå¾ªç¯å‡ æ¬¡
+	int* tmp = new int[n];//è¾…åŠ©ç©ºé—´ï¼Œæ’å®Œçš„æ•°ç»„æ€»è¦æœ‰ä¸ªåœ°æ–¹å­˜ç€
+	int* count = new int[10];// 10 ä¸ªæ¡¶
 	int radix = 1;
 	for (int i = 1; i <= d; ++i)
 	{
-		for (int j = 0; j < 10; ++j)// Ã¿´ÎÇåÁãÍ°¼ÆÊıÆ÷
+		for (int j = 0; j < 10; ++j)// æ¯æ¬¡æ¸…é›¶æ¡¶è®¡æ•°å™¨
 		{
 			count[j] = 0;
 		}
-		for (int j = 0; j < n; ++j)// Í³¼ÆÃ¿¸öÍ°ÖĞµÄ¼ÇÂ¼Êı
+		for (int j = 0; j < n; ++j)// ç»Ÿè®¡æ¯ä¸ªæ¡¶ä¸­çš„è®°å½•æ•°
 		{
 			int k = (data[j] / radix) % 10;
 			count[k]++;
 		}
-		for (int j = 1; j < 10; ++j)// ·ÖÅätmpµÄÎ»ÖÃ
-			count[j] = count[j - 1] + count[j];// count[j] ÖĞ ÊÇ j Í° ºÍ±È j Ğ¡µÄÍ°ÖĞµÄ¼ÇÂ¼ÊıµÄºÍ
-		for (int j = n - 1; j >= 0; --j)// µ¹×ÅÀ´£¬½«ËùÓĞÍ°ÖĞ¼ÇÂ¼ÒÀ´ÎÊÕ¼¯µ½tmpÖĞ
+		for (int j = 1; j < 10; ++j)// åˆ†é…tmpçš„ä½ç½®
+			count[j] = count[j - 1] + count[j];// count[j] ä¸­ æ˜¯ j æ¡¶ å’Œæ¯” j å°çš„æ¡¶ä¸­çš„è®°å½•æ•°çš„å’Œ
+		for (int j = n - 1; j >= 0; --j)// å€’ç€æ¥ï¼Œå°†æ‰€æœ‰æ¡¶ä¸­è®°å½•ä¾æ¬¡æ”¶é›†åˆ°tmpä¸­//æ³¨æ„è¿™é‡Œæ˜¯å€’å™æ‰«æçš„
 		{
 			int k = (data[j] / radix) % 10;
 			tmp[count[k] - 1] = data[j];
 			count[k]--;
 		}
-		for (int j = 0; j < n; ++j) // ½«ÁÙÊ±Êı×é¸´ÖÆ»Ødata
+		for (int j = 0; j < n; ++j) // å°†ä¸´æ—¶æ•°ç»„å¤åˆ¶å›data
 			data[j] = tmp[j];
 		radix *= 10;
 	}
