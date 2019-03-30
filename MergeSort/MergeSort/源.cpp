@@ -4,28 +4,28 @@
 
 using namespace std;
 
-void Merge(int A[], int left, int mid, int right)//ºÏ²¢Á½¸öÒÑÅÅºÃĞòµÄÊı×éA[left...mid]ºÍA[mid+1...right]
+void Merge(int A[], int left, int mid, int right)//åˆå¹¶ä¸¤ä¸ªå·²æ’å¥½åºçš„æ•°ç»„A[left...mid]å’ŒA[mid+1...right]
 {
 	int len = right - left + 1;
-	int* temp = new int[len];//¸¨Öú¿Õ¼ä
+	int* temp = new int[len];//è¾…åŠ©ç©ºé—´
 	int index = 0;
-	int i = left;//Ç°Ò»×ÓÊı×éµÄÆğÊ¼Ô­Ê¼
-	int j = mid+1;//ºóÒ»×ÓÊı×éµÄÆğÊ¼ÔªËØ
+	int i = left;//å‰ä¸€å­æ•°ç»„çš„èµ·å§‹åŸå§‹
+	int j = mid+1;//åä¸€å­æ•°ç»„çš„èµ·å§‹å…ƒç´ 
 	
-	while (i <= mid && j <= right)// ´øµÈºÅ±£Ö¤¹é²¢ÅÅĞòµÄÎÈ¶¨ĞÔ
+	while (i <= mid && j <= right)// å¸¦ç­‰å·ä¿è¯å½’å¹¶æ’åºçš„ç¨³å®šæ€§
 	{
-		temp[index++] = A[i] <= A[j] ? A[i++] : A[j++];
+		temp[index++] = A[i] <= A[j] ? A[i++] : A[j++];//å‰é¢æ²¡æœ‰++ï¼Œåé¢æ‰æœ‰++
 	}
 
 	while (i <= mid)
 		temp[index++] = A[i++];
 	while (j <= right)
 		temp[index++] = A[j++];
-	for (int i = left; i <= right; ++i)//¹é²¢ºó·Å»Øµ½AÖĞ
+	for (int i = left; i <= right; ++i)//å½’å¹¶åæ”¾å›åˆ°Aä¸­
 		A[i] = temp[i - left];
 }
 
-void MergeSortRecursion(int A[], int left,int right) // µİ¹éÊµÏÖµÄ¹é²¢ÅÅĞò(×Ô¶¥ÏòÏÂ)
+void MergeSortRecursion(int A[], int left,int right) // é€’å½’å®ç°çš„å½’å¹¶æ’åº(è‡ªé¡¶å‘ä¸‹)
 {
 	if (left == right)
 		return;
@@ -35,20 +35,20 @@ void MergeSortRecursion(int A[], int left,int right) // µİ¹éÊµÏÖµÄ¹é²¢ÅÅĞò(×Ô¶¥Ï
 	Merge(A, left, mid, right);
 }
 
-void MergeSortIteration(int A[], int len)// ·Çµİ¹é(µü´ú)ÊµÏÖµÄ¹é²¢ÅÅĞò(×Ôµ×ÏòÉÏ)
+void MergeSortIteration(int A[], int len)// éé€’å½’(è¿­ä»£)å®ç°çš„å½’å¹¶æ’åº(è‡ªåº•å‘ä¸Š)
 {
 	int left;
 	int mid;
 	int right;
-	for (int i = 1; i < len; i *= 2)// (Ç°Ò»¸ö)×ÓÊı×éµÄ´óĞ¡i³õÊ¼Îª1£¬Ã¿ÂÖ·­±¶
+	for (int i = 1; i < len; i *= 2)// (å‰ä¸€ä¸ª)å­æ•°ç»„çš„å¤§å°iåˆå§‹ä¸º1ï¼Œæ¯è½®ç¿»å€
 	{
 		left = 0;
-		while (left + i <= len - 1)//ºóÒ»×ÓÊı×é´æÔÚ£¬ĞèÒª¹é²¢£»    left+iÊÇºóÒ»×ÓÊı×éµÄÆğÊ¼ÏÂ±êÖµ
+		while (left + i <= len - 1)//åä¸€å­æ•°ç»„å­˜åœ¨ï¼Œéœ€è¦å½’å¹¶ï¼›    left+iæ˜¯åä¸€å­æ•°ç»„çš„èµ·å§‹ä¸‹æ ‡å€¼
 		{
 			mid = left + i - 1;
-			right = (mid + i) < (len - 1) ? (mid + i) : (len - 1);//ºóÒ»×ÓÊı×é´óĞ¡¿ÉÄÜ²»¹»
+			right = (mid + i) < (len - 1) ? (mid + i) : (len - 1);//åä¸€å­æ•°ç»„å¤§å°å¯èƒ½ä¸å¤Ÿ
 			Merge(A, left, mid, right);
-			left = right + 1;//¹é²¢Ã¿Ò»ÂÖºóÃæµÄÄÚÈİ
+			left = right + 1;//å½’å¹¶æ¯ä¸€è½®åé¢çš„å†…å®¹
 		}
 	}
 }
