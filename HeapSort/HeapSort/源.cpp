@@ -35,7 +35,7 @@ void Heapify(int A[], int i, int size)
 void BuildHeap(int A[], int n)
 {
 	for (int i = (n - 1) / 2; i >= 0; i--)
-		Heapify(A, i, n);
+		Heapify(A, i, n);//从上往下堆排序，只能保证当前最大值点在上面，保证不了绝对最大值点在上面。即容易导致上面的点有可能要小于下面的点
 
 	return;
 
@@ -49,7 +49,7 @@ void HeapSort(int A[], int n)
 	{
 		--heap_size;
 		Swap(A, 0, heap_size);
-		Heapify(A, 0, heap_size);//Heapify(A, 0, heap_size-1)�Ǵ��ģ�������������������
+		Heapify(A, 0, heap_size);//Heapify(A, 0, heap_size-1)是错的！！！！！！！！！！
 	}
 }
 
