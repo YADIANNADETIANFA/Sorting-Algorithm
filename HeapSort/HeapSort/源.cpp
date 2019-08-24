@@ -41,7 +41,7 @@ void BuildHeap(int A[], int n)
 
 }
 
-void HeapSort(int A[], int n)
+void HeapSort(int A[], int n)//n是数组A中，元素的个数
 {
 	BuildHeap(A, n);
 	int heap_size = n;
