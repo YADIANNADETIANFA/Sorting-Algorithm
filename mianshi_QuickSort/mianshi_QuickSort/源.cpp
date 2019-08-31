@@ -1,10 +1,10 @@
 #include<cstdio>
 #include<exception>
-#include<cstdlib>//rand(),srand()Í·ÎÄ¼ş
+#include<cstdlib>//rand(),srand()å¤´æ–‡ä»¶
 #include<ctime>
 using namespace std;
-
-int RandomInRange(int, int);//ÉùÃ÷
+//ä¸ºä»€ä¹ˆè¯´å¿«æ’æ˜¯ä¸ç¨³å®šçš„ï¼Ÿ https://blog.csdn.net/wusuopuBUPT/article/details/22743315
+int RandomInRange(int, int);//å£°æ˜
 void Swap(int*, int*);
 int Partition(int data[], int length, int start, int end)
 {
@@ -63,8 +63,8 @@ int RandomInRange(int start, int end)
 {
 	if (start < end)
 	{
-		srand(time(NULL));//rand()²úÉúµÄËæ»úÊıÔÚÃ¿´ÎÔËĞĞµÄÊ±ºò¶¼ÊÇÓëÉÏÒ»´ÎÏàÍ¬µÄ¡£ÈôÒª²»Í¬,ÓÃº¯Êısrand()³õÊ¼»¯Ëü¡£
-		return start + rand() % (end - start);//¿ÉÒÔÀûÓÃsrand((unsigned int)(time(NULL))µÄ·½·¨£¬²úÉú²»Í¬µÄËæ»úÊıÖÖ×Ó£¬ÒòÎªÃ¿Ò»´ÎÔËĞĞ³ÌĞòµÄÊ±¼äÊÇ²»Í¬µÄ¡£
+		srand(time(NULL));//rand()äº§ç”Ÿçš„éšæœºæ•°åœ¨æ¯æ¬¡è¿è¡Œçš„æ—¶å€™éƒ½æ˜¯ä¸ä¸Šä¸€æ¬¡ç›¸åŒçš„ã€‚è‹¥è¦ä¸åŒ,ç”¨å‡½æ•°srand()åˆå§‹åŒ–å®ƒã€‚
+		return start + rand() % (end - start);//å¯ä»¥åˆ©ç”¨srand((unsigned int)(time(NULL))çš„æ–¹æ³•ï¼Œäº§ç”Ÿä¸åŒçš„éšæœºæ•°ç§å­ï¼Œå› ä¸ºæ¯ä¸€æ¬¡è¿è¡Œç¨‹åºçš„æ—¶é—´æ˜¯ä¸åŒçš„ã€‚
 	}
 	return start;
 }
@@ -88,7 +88,7 @@ int main()
 	int num[9] = { 1,2,3,2,2,2,5,4,2 };
 	int length = sizeof(num) / sizeof(num[0]);
 	QuickSort(num, 9, 0, length-1);
-	Print(num,length);//Êı×é×÷º¯Êı²ÎÊıµÄÊ±ºòÍË»¯ÎªÆÕÍ¨Ö¸Õë£¬²»ÔÙÊÇÊı×éÊ×µØÖ·£¬ËùÒÔÔÚ±ğµÄº¯ÊıÖĞÎŞ·¨¼ÆËãÊı×é³¤¶È£¬ÒªÏÈ¼ÆËãºÃÁËÔÙ´«¹ıÈ¥
+	Print(num,length);//æ•°ç»„ä½œå‡½æ•°å‚æ•°çš„æ—¶å€™é€€åŒ–ä¸ºæ™®é€šæŒ‡é’ˆï¼Œä¸å†æ˜¯æ•°ç»„é¦–åœ°å€ï¼Œæ‰€ä»¥åœ¨åˆ«çš„å‡½æ•°ä¸­æ— æ³•è®¡ç®—æ•°ç»„é•¿åº¦ï¼Œè¦å…ˆè®¡ç®—å¥½äº†å†ä¼ è¿‡å»
 	return 0;
 }
 
@@ -103,6 +103,6 @@ int main()
 {
 	int num[9] = { 1,2,3,2,2,2,5,4,2 };
 	QuickSort(num, 9, 0, sizeof(num)/sizeof(num[0]) - 1);
-	Print(num);//Èç¹ûÕâÃ´×öµÄ»°£¬Ö»»á´ò³önumµÄÊ×¸öÔªËØ£¬¶ø²»ÊÇ´òÓ¡³önumÈ«²¿¡£
+	Print(num);//å¦‚æœè¿™ä¹ˆåšçš„è¯ï¼Œåªä¼šæ‰“å‡ºnumçš„é¦–ä¸ªå…ƒç´ ï¼Œè€Œä¸æ˜¯æ‰“å°å‡ºnumå…¨éƒ¨ã€‚
 	return 0;
 }*/
